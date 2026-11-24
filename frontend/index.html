@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="zoomfix.js"></script>
+  <title>SCOPE</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=2">
+  <link rel="shortcut icon" href="/favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="/logo.png?v=2">
+  <link rel="stylesheet" href="style.css?v=1795200002">
+</head>
+
+<body>
+  <div id="login" class="hidden">
+    <canvas id="pvc" class="pv-canvas" aria-hidden="true"></canvas>
+
+    <header class="lg-nav" id="lgnav">
+      <a class="lg-brand" href="#top" data-go-top><img src="/logo.png?v=2" alt="" width="36"
+          height="36"><span>SCOPE</span></a>
+      <nav class="lg-links" aria-label="Sections"><a href="#about">About</a><a href="#features">Features</a><a
+          href="#how">How it works</a><a href="#criteria">Screening</a><a href="#access">Access</a></nav>
+      <div class="admin-lock-wrap" id="lgAdminLock">
+        <a class="admin-lock-btn" href="/admin" aria-label="Admin" title="Admin">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </a>
+        <span class="admin-lock-tip">Admin</span>
+      </div>
+    </header>
+
+    <!-- ===== hero: intro + the ONLY login form (admin / user) ===== -->
+    <section class="lg-hero" id="top">
+      <canvas id="plc" class="planet" aria-hidden="true"></canvas>
+      <div class="lg-intro">
+        <span class="lg-tag">Perovskite cathode screening platform</span>
+        <h2 class="lg-title">Discover better cathodes with <em>machine learning</em></h2>
+        <div class="lg-cta"><a class="lg-btn ghost" href="#about">Explore SCOPE</a></div>
+      </div>
+      <form id="lf" class="card login">
+        <div class="logo-lg"><img src="/logo.png?v=2" alt="SCOPE logo" width="72" height="72"></div>
+        <div class="mode-badge-wrap"><span class="mode-badge" id="modeBadge">Login</span></div>
+        <h1>SCOPE</h1>
+        <p class="muted">Screening Cathodes for Optimal Perovskite Efficiency</p>
+        <label id="l1"><span id="l1t">Username</span><input id="roll" autocomplete="username"
+            placeholder="Enter your username" maxlength="30" required></label>
+        <label>Password<input id="pw" type="password" autocomplete="current-password" required></label>
+        <div id="lerr" class="err"></div><button type="submit" class="btn" id="lbtn">Log in</button>
+        <div id="regw" class="small muted" style="text-align:center;margin-top:10px"><span id="regq">New user?</span> <a
+            href="#" id="regt">Create account</a></div>
+        <div class="foot">Neil Gogte Institute of Technology</div>
+      </form>
+      <a class="lg-scroll" href="#about" aria-label="Scroll to learn more"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6" />
+        </svg></a>
+    </section>
+
+    <section class="lg-sec" id="about">
+      <div class="lg-wrap lg-split">
+        <div><span class="lg-eyebrow lgr">About SCOPE</span>
+          <h2 class="lg-h2 lgr">From a spreadsheet of candidates to a ranked shortlist</h2>
+          <p class="lgr">SCOPE &mdash; <b>S</b>creening <b>C</b>athodes for <b>O</b>ptimal <b>P</b>erovskite
+            <b>E</b>fficiency &mdash; is a web workspace for screening perovskite cathode materials with machine
+            learning.</p>
+          <p class="lgr">Upload a list of cathode formulas and enter the operating temperature. SCOPE calculates the
+            descriptors from each formula, predicts the remaining properties with built-in SVR models, filters every
+            cathode on TEC, log10(k*) and Ehull, and opens a ranked, exportable shortlist.</p>
+        </div>
+        <div class="lg-tiles">
+          <div class="lg-tile lgr"><b>1</b><span>ML model<br>SVR</span></div>
+          <div class="lg-tile lgr"><b>3</b><span>pass / fail<br>checks</span></div>
+          <div class="lg-tile lgr"><b>1</b><span>ranked<br>shortlist</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg-sec alt" id="features">
+      <div class="lg-wrap">
+        <span class="lg-eyebrow lgr">Features</span>
+        <h2 class="lg-h2 lgr">Everything you need to screen cathodes</h2>
+        <ul class="lg-feats">
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+              </svg></span>
+            <div><b>Built-in SVR models</b><small>Descriptors are calculated from each formula and properties are predicted &ndash;
+                nothing to train.</small></div>
+          </li>
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z" />
+                <path d="M8.5 12l2.5 2.5 4.5-5" />
+              </svg></span>
+            <div><b>Pass / fail screening</b><small>Filter candidates on TEC, log10(k*) kinetics and Ehull stability.</small>
+            </div>
+          </li>
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L4 14h7l-1 8 9-12h-7z" />
+              </svg></span>
+            <div><b>Predict a single cathode</b><small>Enter descriptor values on the dashboard and get a verdict from a
+                saved model.</small></div>
+          </li>
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path
+                  d="M14.5 9.2c-.6-.8-1.6-1.2-2.7-1.2-1.5 0-2.6.8-2.6 1.9 0 2.6 5.6 1.3 5.6 4 0 1.2-1.2 2-2.8 2-1.2 0-2.3-.5-2.9-1.4M12 6.5V8m0 8v1.5" />
+              </svg></span>
+            <div><b>Cost estimate</b><small>Precursor cost for every screened cathode, shown for information.</small></div>
+          </li>
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2l9 5v10l-9 5-9-5V7z" />
+                <path d="M3 7l9 5 9-5M12 12v10" />
+              </svg></span>
+            <div><b>3D structure viewer</b><small>Inspect the crystal structure of any screened cathode.</small></div>
+          </li>
+          <li class="lg-feat lgr"><span class="lg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                <path d="M14 3v5h5M12 11v6m0 0l-2.5-2.5M12 17l2.5-2.5" />
+              </svg></span>
+            <div><b>Excel export</b><small>Download full results as ready-to-share spreadsheets.</small></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="lg-sec" id="how">
+      <div class="lg-wrap">
+        <span class="lg-eyebrow lgr">How it works</span>
+        <h2 class="lg-h2 lgr">From dataset to results in four steps</h2>
+        <ol class="lg-steps">
+          <li class="lg-step lgr"><i>1</i><b>Upload and set temperature</b><small>CSV or Excel, up to 15 MB, plus the operating
+              temperature. SCOPE detects the formula column and any descriptor columns you already have.</small></li>
+          <li class="lg-step lgr"><i>2</i><b>Descriptors and predictions</b><small>Descriptors are calculated from the formulas;
+              TEC, Ehull and log10(k*) are predicted, as on the single-cathode page.</small></li>
+          <li class="lg-step lgr"><i>3</i><b>Screening results open</b><small>Every cathode is checked and
+              ranked.</small></li>
+          <li class="lg-step lgr"><i>4</i><b>Predict &amp; export</b><small>Predict a single cathode, open any cathode
+              in 3D, see the best in each category and download Excel / CSV.</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="lg-sec alt" id="criteria">
+      <div class="lg-wrap">
+        <span class="lg-eyebrow lgr">Screening</span>
+        <h2 class="lg-h2 lgr">How a cathode passes</h2>
+        <div class="lg-crits">
+          <div class="lg-crit lgr">
+            <h3>Thermal expansion (TEC)</h3>
+            <p>Predicted TEC must be at most <b>15 &times;10<sup>&minus;6</sup> K<sup>&minus;1</sup></b>.</p>
+          </div>
+          <div class="lg-crit lgr">
+            <h3>Activity (ORR)</h3>
+            <p>Predicted log10(k*) must be at least <b>&minus;6.40</b> (log<sub>10</sub> of k* in cm/s), the LSC benchmark.</p>
+          </div>
+          <div class="lg-crit lgr">
+            <h3>Stability (Ehull)</h3>
+            <p>Predicted energy above hull must be at most <b>57 meV/atom</b>.</p>
+          </div>
+        </div>
+        <p class="lg-note lgr">The applicability domain and the precursor cost estimate (Cheap / Moderate / Expensive) are
+          shown for information. They never change PASS / FAIL.</p>
+      </div>
+    </section>
+
+    <section class="lg-sec" id="access">
+      <div class="lg-wrap">
+        <span class="lg-eyebrow lgr">Access</span>
+        <h2 class="lg-h2 lgr">Two ways to sign in</h2>
+        <div class="lg-crits two">
+          <div class="lg-crit lgr">
+            <h3>User</h3>
+            <p>Create an account once, then sign in with your username and password. Upload datasets or predict a single
+              cathode from one dashboard; your datasets, models and results stay private to your account.</p>
+          </div>
+          <div class="lg-crit lgr">
+            <h3>Admin</h3>
+            <p>Sign in with admin credentials to review users, live activity, datasets and predictions across the
+              platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg-sec lg-final">
+      <div class="lg-wrap lgr">
+        <h2 class="lg-h2">Ready to screen your cathodes?</h2><button type="button" class="lg-btn" data-go-login>Log
+          in</button>
+      </div>
+    </section>
+    <footer class="lg-foot"><img src="/logo.png?v=2" alt="SCOPE logo" width="36" height="36"><span><b>SCOPE</b> &middot; Screening Cathodes for Optimal Perovskite Efficiency<br>Neil Gogte Institute of Technology</span></footer>
+  </div>
+  <div id="app" class="hidden">
+    <header class="topbar"><span class="brand"><span class="logo"><img src="/logo.png?v=2" alt="SCOPE logo" width="42"
+            height="42"></span>
+        <div>SCOPE</div>
+      </span>
+      <div class="who"><span id="who"></span><button class="link" id="logout">Log out</button></div>
+    </header>
+    <div class="wrap">
+      <div id="bar"></div>
+      <main id="main"></main>
+    </div>
+  </div>
+  <div id="busy" class="hidden">
+    <div class="spin"></div>
+    <div id="busymsg"></div>
+  </div>
+  <div id="modal" class="hidden">
+    <div class="mbox"><button class="x" id="mx">×</button>
+      <div id="mbody"></div>
+    </div>
+  </div>
+  <div id="toast"></div>
+
+  <script>
+    /* Login background: twinkling stars + floating, slowly tumbling perovskite (ABO3) structures.
+       Edit STRUCTS to move / resize / blur them:  [x, y, size, blur(0-1), speed]  (x,y = fraction of screen) */
+    (function () {
+      var cv = document.getElementById('pvc'); if (!cv) return;
+      var ctx = cv.getContext('2d'), login = document.getElementById('login');
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var W = 0, H = 0, DPR = 1, drawnStatic = false;
+      function R(a, b) { return a + Math.random() * (b - a); }
+
+      /* ----- ABO3 cell: 8 A corners, 1 B centre, 6 O face centres ----- */
+      var BASE = [], EDGES = [], i, j;
+      for (i = 0; i < 8; i++) BASE.push({ p: [(i & 1) ? 1 : -1, (i & 2) ? 1 : -1, (i & 4) ? 1 : -1], t: 'A' });
+      BASE.push({ p: [0, 0, 0], t: 'B' });
+      [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]].forEach(function (p) { BASE.push({ p: p, t: 'O' }); });
+      for (i = 0; i < 8; i++)for (j = i + 1; j < 8; j++) { var d = 0; for (var c = 0; c < 3; c++)if (BASE[i].p[c] !== BASE[j].p[c]) d++; if (d === 1) EDGES.push([i, j, 0]); }   /* cube edges */
+      for (i = 9; i < 15; i++)for (j = i + 1; j < 15; j++) { var dp = 0; for (var c2 = 0; c2 < 3; c2++)dp += BASE[i].p[c2] * BASE[j].p[c2]; if (dp === 0) EDGES.push([i, j, 1]); }   /* octahedron */
+      for (i = 9; i < 15; i++)EDGES.push([8, i, 2]);   /* B-O bonds */
+
+      var STRUCTS = [
+        [.20, .13, 70, 0, .5], [.61, .04, 58, 0, .6], [.88, .19, 86, 0, .45], [.745, .31, 44, .65, .7],
+        [.10, .46, 86, 0, .5], [.27, .41, 38, .7, .6], [.27, .64, 56, .25, .55], [.05, .70, 44, .55, .6],
+        [.16, .83, 50, .85, .5], [.83, .60, 80, 0, .5], [.94, .45, 58, .8, .45], [.70, .53, 38, .65, .6], [.91, .86, 42, .85, .5],
+        [.50, .20, 36, .40, .60], [.57, .37, 52, .10, .50], [.48, .55, 32, .50, .60], [.58, .70, 46, .20, .55], [.52, .84, 34, .55, .50], [.45, .36, 28, .60, .55]
+      ].map(function (s) {
+        var v = BASE.map(function (b) { return { t: b.t, p: [b.p[0] + R(-.07, .07), b.p[1] + R(-.07, .07), b.p[2] + R(-.07, .07)] }; });
+        return {
+          fx: s[0], fy: s[1], size: s[2], soft: s[3], sp: s[4], v: v,
+          a0: [R(0, 6.28), R(0, 6.28), R(0, 6.28)], w: [R(-.16, .16), R(-.2, .2), R(-.12, .12)],
+          ph: R(0, 6.28), ax: R(14, 30), ay: R(12, 26), acc: Math.random() < .45 ? Math.floor(R(0, 8)) : -1,
+          a: s[3] > 0 ? (.55 - .3 * s[3]) : .95, al: 0, wait: 0
+        };
+      });
+
+      var STARS = [];
+      function makeStars() { STARS = []; var n = Math.round(W * H / 9000); for (var k = 0; k < n; k++)STARS.push({ x: R(0, W), y: R(0, H * .9), r: R(.4, 1.3), ph: R(0, 6.28), sp: R(.4, 1.4), cy: Math.random() < .08 }); }
+
+      function size() {
+        DPR = Math.min(window.devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight;
+        cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        makeStars(); drawnStatic = false;
+      }
+
+      /* ----- keep crystals out from under any text / card / button -----
+         Every frame we measure the page's text blocks. A crystal that would overlap one fades out,
+         jumps to a free spot and fades back in, so it is never drawn behind text (also while scrolling). */
+      var BOXSEL = '#lgnav,.lg-brand,.lg-links a,.lg-nav-btn,.lg-tag,.lg-eyebrow,.lg-cta .lg-btn,.lg-chips li,#login .login,.lg-scroll,.lg-tile,.lg-feat,.lg-step,.lg-crit,.lg-final .lg-btn,.lg-foot';
+      var TXTSEL = '.lg-title,.lg-lead,.lg-h2,.lg-sec p';
+      var BOXES = [].slice.call(login.querySelectorAll(BOXSEL)), TXTS = [].slice.call(login.querySelectorAll(TXTSEL)), RC = [], rg = document.createRange(), lastT = 0, lastGather = 0;
+      function KK() { return Math.max(.6, Math.min(W / 1440, H / 900)); }
+      function pos(S, t) { var k = KK(); return [S.fx * W + Math.sin(t * S.sp * .35 + S.ph) * S.ax * k, S.fy * H + Math.cos(t * S.sp * .28 + S.ph * 1.3) * S.ay * k]; }
+      function rad(S) { var k = KK(); return S.size * k * (.8 + S.soft * .5) + 14; }
+      function addRect(r) { var z = window.__zf || 1; if (z !== 1) r = { left: r.left / z, right: r.right / z, top: r.top / z, bottom: r.bottom / z, width: r.width / z, height: r.height / z }; if (r.width > 1 && r.height > 1 && r.bottom > -60 && r.top < H + 60) RC.push(r); }
+      function gather() {
+        RC.length = 0;
+        BOXES.forEach(function (el) { if (el.id === 'lgnav' && !el.classList.contains('sc')) return; addRect(el.getBoundingClientRect()); });
+        TXTS.forEach(function (el) { rg.selectNodeContents(el); addRect(rg.getBoundingClientRect()); });   /* tight to the actual text lines */
+      }
+      function hit(x, y, r) {
+        for (var q = 0; q < RC.length; q++) { var b = RC[q], dx = Math.max(b.left - x, 0, x - b.right), dy = Math.max(b.top - y, 0, y - b.bottom); if (dx * dx + dy * dy < r * r) return true; }
+        return false;
+      }
+      var FADE = .18;   /* how visible a crystal stays when text is on top of it (0 = hidden, 1 = unchanged) */
+      function updateStruct(S, t, dt, now, instant) {
+        var c = pos(S, t), tg = hit(c[0], c[1], rad(S)) ? FADE : 1;
+        S.al = instant ? tg : (S.al < tg ? Math.min(tg, S.al + dt * 1.2) : Math.max(tg, S.al - dt * 1.8));
+      }
+
+      function rot(p, ax, ay, az) {
+        var x = p[0] * Math.cos(ay) + p[2] * Math.sin(ay), z = -p[0] * Math.sin(ay) + p[2] * Math.cos(ay), y = p[1];
+        var y2 = y * Math.cos(ax) - z * Math.sin(ax), z2 = y * Math.sin(ax) + z * Math.cos(ax);
+        return [x * Math.cos(az) - y2 * Math.sin(az), x * Math.sin(az) + y2 * Math.cos(az), z2];
+      }
+
+      function node(x, y, r, t, S, cyan) {
+        var g;
+        if (S.soft > 0) {                                   /* out-of-focus bokeh */
+          r *= 1 + S.soft * 1.1; g = ctx.createRadialGradient(x, y, 0, x, y, r);
+          g.addColorStop(0, 'rgba(130,195,255,' + (.55 * S.a * 1.6) + ')'); g.addColorStop(1, 'rgba(60,140,230,0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); return;
+        }
+        g = ctx.createRadialGradient(x - r * .3, y - r * .3, r * .05, x, y, r);
+        if (cyan) { g.addColorStop(0, '#f0ffff'); g.addColorStop(.4, '#3fe8ff'); g.addColorStop(1, 'rgba(20,150,190,.6)'); ctx.shadowColor = 'rgba(60,235,255,.95)'; ctx.shadowBlur = r * 2.6; }
+        else { g.addColorStop(0, 'rgba(230,246,255,.95)'); g.addColorStop(.35, 'rgba(120,195,255,.85)'); g.addColorStop(1, 'rgba(25,85,165,.6)'); ctx.shadowColor = 'rgba(80,180,255,.7)'; ctx.shadowBlur = r * 1.5; }
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+      }
+
+      function drawStruct(S, t) {
+        var k = KK(), size = S.size * k, c = pos(S, t), cx = c[0], cy = c[1];
+        ctx.globalAlpha = S.al;
+        var P = S.v.map(function (b, idx) {
+          var q = rot(b.p, S.a0[0] + t * S.w[0], S.a0[1] + t * S.w[1], S.a0[2] + t * S.w[2]), pe = 1 / (1 + q[2] * .16);
+          return { x: cx + q[0] * size * .62 * pe, y: cy + q[1] * size * .62 * pe, z: q[2], pe: pe, t: b.t, i: idx };
+        });
+        ctx.lineCap = 'round';
+        EDGES.forEach(function (e) {
+          var A = P[e[0]], B = P[e[1]], al = [.34, .24, .40][e[2]] * S.a * (S.soft > 0 ? .55 : 1);
+          ctx.strokeStyle = 'rgba(140,205,255,' + al.toFixed(3) + ')'; ctx.lineWidth = (S.soft > 0 ? 1.2 : .9);
+          ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+        });
+        P.slice().sort(function (a, b) { return a.z - b.z; }).forEach(function (p) {
+          var r = size * (p.t === 'B' ? .115 : p.t === 'A' ? .085 : .07) * p.pe;
+          node(p.x, p.y, r, p.t, S, S.acc === p.i);
+        });
+      }
+
+      function drawFrame(t, instant) {
+        ctx.clearRect(0, 0, W, H);
+        STARS.forEach(function (s) {
+          var a = .25 + .75 * Math.abs(Math.sin(t * s.sp + s.ph));
+          ctx.fillStyle = s.cy ? 'rgba(90,235,255,' + a + ')' : 'rgba(200,228,255,' + (a * .8) + ')';
+          if (s.cy) { ctx.shadowColor = 'rgba(60,230,255,.9)'; ctx.shadowBlur = 6; }
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+          if (s.cy) ctx.shadowBlur = 0;
+        });
+        var now = performance.now() / 1000, dt = Math.min(.1, lastT ? now - lastT : 0); lastT = now;
+        if (instant || now - lastGather > 0.25) { gather(); lastGather = now; }
+        STRUCTS.forEach(function (S) { updateStruct(S, t, dt, now, instant); });
+        STRUCTS.slice().sort(function (a, b) { return b.soft - a.soft; }).forEach(function (S) {   /* blurred ones behind */
+          if (S.al < .01) return;
+          drawStruct(S, t); ctx.globalAlpha = 1;
+        });
+      }
+
+      function frame(now) {
+        requestAnimationFrame(frame);
+        if (login.classList.contains('hidden') || !cv.clientWidth || !cv.clientHeight) return;
+        if (cv.clientWidth !== W || cv.clientHeight !== H) size();
+        if (reduce) { if (!drawnStatic) { drawFrame(0, true); drawFrame(0, true); drawnStatic = true; } return; }
+        drawFrame(now / 1000);
+      }
+      window.addEventListener('resize', function () { if (cv.clientWidth) size(); });
+      window.addEventListener('scroll', function () { drawnStatic = false; }, { passive: true });
+      requestAnimationFrame(frame);
+    })();
+  </script>
+  <script>
+    /* Login planet: a rocky, cratered surface under a glowing blue horizon (procedural, drawn once per size). */
+    (function () {
+      var cv = document.getElementById('plc'); if (!cv) return;
+      var ctx = cv.getContext('2d'), login = document.getElementById('login'), W = 0, H = 0;
+      function mk(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+      function hash(x, y) { var h = (Math.imul(x, 374761393) + Math.imul(y, 668265263)) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; }
+      function vn(x, y) {
+        var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+        var a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1); return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+      }
+      function fbm(x, y) { return .50 * vn(x, y) + .27 * vn(x * 2.07, y * 2.07) + .15 * vn(x * 4.31, y * 4.31) + .08 * vn(x * 8.9, y * 8.9); }
+      function mix(a, b, t) { return a + (b - a) * t; }
+
+      function render() {
+        W = cv.clientWidth; H = cv.clientHeight; if (!W || !H) return;
+        var DPR = Math.min(window.devicePixelRatio || 1, 2); cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+        var yTop = H * .34, yEdge = H * .70;
+        function arc(x) { var t = 2 * x / W - 1; return yTop + (yEdge - yTop) * t * t; }
+
+        /* ---- 1. ground texture: noise on a perspective ground plane, lit from the upper left ---- */
+        var Wc = Math.min(W, 1920), sx = W / Wc, off = document.createElement('canvas'); off.width = Wc; off.height = H;
+        var oc = off.getContext('2d'), img = oc.createImageData(Wc, H), px = img.data;
+        for (var y = 0; y < H; y++) {
+          for (var x = 0; x < Wc; x++) {
+            var X = x * sx, ay = arc(X), i = (y * Wc + x) * 4;
+            if (y < ay - 1) { px[i + 3] = 0; continue; }
+            var d = Math.min(1, (y - ay) / (H - ay + 1)), z = 1 / (d * 1.15 + .075), u = (X / W - .5) * z * 5.2, v = z * 2.1;
+            var h0 = fbm(u, v), hx = fbm(u + .045, v), hy = fbm(u, v + .045);
+            var slope = (h0 - hx) * 1.0 + (h0 - hy) * .8, sh = .50 + slope * 9;               /* light from upper-left */
+            var big = fbm(u * .35 + 9, v * .35 + 4);                                   /* large, slow tonal patches */
+            var t = Math.max(0, Math.min(1, sh * .78 + h0 * .28 + big * .22 - .08));
+            var haze = Math.exp(-d * 5) * .72;                                  /* atmosphere near the horizon */
+            var dark = 1 - .70 * Math.pow(d, .75);
+            var r = mix(5, 40, t), g = mix(15, 88, t), b = mix(34, 156, t);
+            r = mix(r, 52, haze) * dark; g = mix(g, 112, haze) * dark; b = mix(b, 200, haze) * dark;
+            var gr = (hash(x * 7 + 3, y * 13 + 1) - .5) * 15 * (.4 + d);                       /* fine grain */
+            px[i] = Math.max(0, Math.min(255, r + gr * .6)); px[i + 1] = Math.max(0, Math.min(255, g + gr * .8)); px[i + 2] = Math.max(0, Math.min(255, b + gr));
+            px[i + 3] = Math.min(255, Math.round((y - ay + 1) * 255));
+          }
+        }
+        oc.putImageData(img, 0, 0);
+        ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.imageSmoothingEnabled = true; ctx.drawImage(off, 0, 0, cv.width, cv.height);
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+        var R = mk(20260611);
+        function pt(dMin, dMax) { var x = R() * W, ay = arc(x), d = dMin + (dMax - dMin) * R(); return { x: x, y: ay + d * (H - ay), d: d }; }
+
+        /* ---- 2. craters (flattened by perspective) ---- */
+        for (var c = 0; c < 16; c++) {
+          var p = pt(.12, .9), rx = 6 + 60 * Math.pow(p.d, 1.2) * (.5 + R()), ry = rx * .2;
+          var gd = ctx.createRadialGradient(p.x, p.y, rx * .1, p.x, p.y, rx); gd.addColorStop(0, 'rgba(2,8,20,.75)'); gd.addColorStop(.75, 'rgba(5,16,38,.45)'); gd.addColorStop(1, 'rgba(5,16,38,0)');
+          ctx.fillStyle = gd; ctx.beginPath(); ctx.ellipse(p.x, p.y, rx, ry, 0, 0, 6.2832); ctx.fill();
+          ctx.strokeStyle = 'rgba(150,205,255,.34)'; ctx.lineWidth = Math.max(.7, rx * .03); ctx.beginPath(); ctx.ellipse(p.x, p.y, rx * .96, ry * .96, 0, Math.PI * 1.05, Math.PI * 1.95); ctx.stroke();
+        }
+
+        /* ---- 3. pebbles and dust ---- */
+        for (var k = 0; k < Math.round(W * .55); k++) {
+          var q = pt(.04, 1), s = .5 + 2.2 * Math.pow(q.d, 1.1) * R();
+          ctx.fillStyle = 'rgba(' + (110 + R() * 60 | 0) + ',' + (170 + R() * 50 | 0) + ',255,' + (.12 + .38 * R()) + ')';
+          ctx.beginPath(); ctx.ellipse(q.x, q.y, s, s * .55, 0, 0, 6.2832); ctx.fill();
+        }
+
+        /* ---- 4. boulders: faceted, lit from the upper left, with cast shadows ---- */
+        var rocks = [], n = Math.round(W / 7);
+        for (var m = 0; m < n; m++) { var a = pt(.025, 1.0); a.s = 1.6 + 34 * Math.pow(a.d, 1.5) * (.18 + Math.pow(R(), 2.2) * 1.05); rocks.push(a); }
+        for (var hh = 0; hh < 9; hh++) { var a2 = pt(.55, .95); a2.s = 22 + 24 * R(); a2.hero = 1; rocks.push(a2); }
+        rocks.sort(function (a, b) { return a.y - b.y; });
+        rocks.forEach(function (o) {
+          var s = o.s, x = o.x, y = o.y - s * .18, nv = 11 + Math.floor(R() * 5), pts = [], j;
+          for (j = 0; j < nv; j++) { var an = j / nv * 6.2832 + R() * .22, rr = s * (.8 + R() * .36); pts.push([x + Math.cos(an) * rr, y + Math.sin(an) * rr * .66]); }
+          ctx.fillStyle = 'rgba(0,5,15,.6)'; ctx.beginPath(); ctx.ellipse(x + s * .6, y + s * .36, s * 1.3, s * .3, -.06, 0, 6.2832); ctx.fill();   /* cast shadow */
+          var g = ctx.createLinearGradient(x - s, y - s * .8, x + s * .9, y + s * .55);
+          if (o.hero) { g.addColorStop(0, '#7db3ea'); g.addColorStop(.28, '#3a6ea6'); g.addColorStop(.7, '#12305a'); g.addColorStop(1, '#061830'); } else { g.addColorStop(0, '#5f98d2'); g.addColorStop(.3, '#2b5788'); g.addColorStop(.7, '#10294d'); g.addColorStop(1, '#06142a'); }
+          ctx.fillStyle = g; ctx.beginPath(); pts.forEach(function (q, ii) { ii ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.closePath(); ctx.fill();
+          if (s > 5) {                                                                                              /* facets + rim light */
+            ctx.strokeStyle = 'rgba(4,14,34,.38)'; ctx.lineWidth = Math.max(.5, s * .025);
+            for (j = 0; j < 3; j++) { var t2 = pts[Math.floor(R() * nv)]; ctx.beginPath(); ctx.moveTo(x + (R() - .5) * s * .3, y + (R() - .4) * s * .2); ctx.lineTo(t2[0], t2[1]); ctx.stroke(); }
+            ctx.fillStyle = 'rgba(185,225,255,.09)'; ctx.beginPath(); ctx.moveTo(pts[nv - 1][0], pts[nv - 1][1]); ctx.lineTo(pts[0][0], pts[0][1]); ctx.lineTo(pts[1][0], pts[1][1]); ctx.lineTo(x - s * .1, y - s * .05); ctx.closePath(); ctx.fill();
+            ctx.strokeStyle = o.hero ? 'rgba(175,220,255,.7)' : 'rgba(150,205,255,.42)'; ctx.lineWidth = Math.max(.6, s * .035); ctx.lineJoin = 'round';
+            ctx.beginPath(); var st = false; pts.forEach(function (q) { if (q[1] < y + s * .05) { st ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); st = true; } }); ctx.stroke();
+          }
+        });
+
+        /* ---- 5. horizon glow: atmosphere + bright rim ---- */
+        function stroke(dy, lw, col, blur) {
+          ctx.beginPath(); for (var x = 0; x <= W; x += 8) { var yy = arc(x) + dy; x ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy); }
+          ctx.lineWidth = lw; ctx.strokeStyle = col; ctx.shadowColor = 'rgba(90,185,255,.9)'; ctx.shadowBlur = blur || 0; ctx.stroke(); ctx.shadowBlur = 0;
+        }
+        for (var h = 44; h >= 1; h--)stroke(-h * 1.4, 4, 'rgba(60,150,245,' + (.05 * (1 - h / 46)) + ')');
+        stroke(0, 18, 'rgba(70,160,255,.10)', 26); stroke(0, 7, 'rgba(120,200,255,.28)', 14); stroke(0, 2.6, 'rgba(170,225,255,.78)', 8); stroke(0, 1.1, 'rgba(235,248,255,.95)', 0);
+
+        /* ---- 6. darker toward the bottom and the far left / right edges ---- */
+        ctx.globalCompositeOperation = 'source-atop';
+        var v = ctx.createLinearGradient(0, H * .55, 0, H); v.addColorStop(0, 'rgba(2,8,20,0)'); v.addColorStop(1, 'rgba(2,8,20,.55)'); ctx.fillStyle = v; ctx.fillRect(0, H * .55, W, H * .45);
+        var e = ctx.createLinearGradient(0, 0, W, 0); e.addColorStop(0, 'rgba(2,8,20,.55)'); e.addColorStop(.18, 'rgba(2,8,20,0)'); e.addColorStop(.82, 'rgba(2,8,20,0)'); e.addColorStop(1, 'rgba(2,8,20,.55)'); ctx.fillStyle = e; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = 'source-over';
+      }
+      var rt; function tick() { requestAnimationFrame(tick); if (login.classList.contains('hidden') || !cv.clientWidth) return; if (cv.clientWidth !== W || cv.clientHeight !== H) { clearTimeout(rt); rt = setTimeout(render, W ? 150 : 0); if (!W) { W = cv.clientWidth; H = cv.clientHeight; render(); } } }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+  <script>
+    /* ======================================================
+       SCOPE ANIMATIONS & NAVIGATION CONTROLLER
+       1. Page Load Staggered Text Reveal (CrystalParadigm Style)
+       2. Instant-Reaction, Jitter-Free Native Momentum Scrolling
+       3. Scroll-Triggered Section & Card Reveals Across Whole Page
+       ====================================================== */
+    (function () {
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var login = document.getElementById('login');
+      var nav = document.getElementById('lgnav');
+
+      /* ---- Nav bar anchor state on scroll (RAF throttled, zero layout shift) ---- */
+      var navTicking = false;
+      function updateNav() {
+        if (!navTicking) {
+          requestAnimationFrame(function () {
+            if (nav) nav.classList.toggle('sc', (window.scrollY || document.documentElement.scrollTop) > 10);
+            navTicking = false;
+          });
+          navTicking = true;
+        }
+      }
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+
+      /* ======================================================
+         1. HERO TITLE LOAD REVEAL (Clean Spacing + Crisp Slide-Up)
+         ====================================================== */
+      var title = login ? login.querySelector('.lg-title') : null;
+      var tag = login ? login.querySelector('.lg-tag') : null;
+      var cta = login ? login.querySelector('.lg-cta') : null;
+
+      function initHeroReveal() {
+        if (!title) return;
+        if (reduce) {
+          if (tag) tag.classList.add('in');
+          if (cta) cta.classList.add('in');
+          return;
+        }
+
+        var charSpans = [];
+
+        function wrapWords(text, container) {
+          var tokens = text.split(/(\s+)/);
+          tokens.forEach(function (token) {
+            if (!token) return;
+            if (/^\s+$/.test(token)) {
+              container.appendChild(document.createTextNode(' '));
+            } else {
+              var wordSpan = document.createElement('span');
+              wordSpan.className = 'wipe-word';
+              for (var i = 0; i < token.length; i++) {
+                var chSpan = document.createElement('span');
+                chSpan.className = 'wipe-char';
+                chSpan.textContent = token[i];
+                wordSpan.appendChild(chSpan);
+                charSpans.push(chSpan);
+              }
+              container.appendChild(wordSpan);
+            }
+          });
+        }
+
+        function walk(node, parent) {
+          if (node.nodeType === 3) {
+            wrapWords(node.nodeValue, parent);
+          } else if (node.nodeType === 1) {
+            var clone = node.cloneNode(false);
+            [].slice.call(node.childNodes).forEach(function (ch) {
+              walk(ch, clone);
+            });
+            parent.appendChild(clone);
+          }
+        }
+
+        var frag = document.createDocumentFragment();
+        [].slice.call(title.childNodes).forEach(function (child) {
+          walk(child, frag);
+        });
+        title.innerHTML = '';
+        title.appendChild(frag);
+
+        var charIndex = 0;
+        var charDelay = 20; // Crisp CrystalParadigm-style cadence
+        function step() {
+          if (charIndex < charSpans.length) {
+            charSpans[charIndex].classList.add('in');
+            charIndex++;
+            setTimeout(step, charDelay);
+          } else {
+            setTimeout(function () {
+              if (tag) tag.classList.add('in');
+              if (cta) cta.classList.add('in');
+            }, 90);
+          }
+        }
+        setTimeout(step, 80);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroReveal);
+      } else {
+        initHeroReveal();
+      }
+
+      /* ======================================================
+         2. IMMEDIATE, NATIVE RESPONSIVE SCROLLING (Zero Delay)
+         ====================================================== */
+      function smoothScrollTo(y) {
+        window.scrollTo({
+          top: Math.max(0, y),
+          behavior: 'smooth'
+        });
+      }
+
+      function toTop(e) {
+        if (e) e.preventDefault();
+        smoothScrollTo(0);
+      }
+
+      document.querySelectorAll('[data-go-top]').forEach(function (a) {
+        a.addEventListener('click', toTop);
+      });
+
+      document.querySelectorAll('[data-go-login]').forEach(function (b) {
+        b.addEventListener('click', function (e) {
+          toTop(e);
+          setTimeout(function () {
+            var r = document.getElementById('roll');
+            if (r) r.focus({ preventScroll: true });
+          }, 450);
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = a.getAttribute('href').slice(1);
+          if (!id || id === 'top') {
+            e.preventDefault();
+            toTop();
+            return;
+          }
+          var target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            var y = target.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop) - 60;
+            smoothScrollTo(y);
+          }
+        });
+      });
+
+      /* ======================================================
+         3. PROGRESSIVE SCROLL-BASED REVEALS ACROSS WHOLE SITE
+         ====================================================== */
+      if (login) {
+        // Smooth organic stagger delays for card groups (180ms between boxes)
+        login.querySelectorAll('.lg-tiles, .lg-feats, .lg-steps, .lg-crits').forEach(function (group) {
+          var cards = group.querySelectorAll('.lgr');
+          cards.forEach(function (card, idx) {
+            card.style.transitionDelay = (idx * 180) + 'ms';
+          });
+        });
+
+        var lgrItems = [].slice.call(login.querySelectorAll('.lgr'));
+        if (!reduce && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('lgr-in');
+              } else {
+                var r = entry.boundingClientRect;
+                if (r.top > (window.innerHeight || 800) || r.bottom < -80) {
+                  entry.target.classList.remove('lgr-in');
+                }
+              }
+            });
+          }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -12% 0px'
+          });
+          lgrItems.forEach(function (el) { io.observe(el); });
+        } else {
+          lgrItems.forEach(function (el) { el.classList.add('lgr-in'); });
+        }
+      }
+    })();
+  </script>
+  <script>
+  /* Marks each card as "done" once its slow reveal has finished, so hover can be fast (see .lgr-done in style.css). */
+  (function () {
+    [].forEach.call(document.querySelectorAll('.lgr'), function (el) {
+      el.addEventListener('transitionend', function (e) {
+        if (e.target === el && e.propertyName === 'opacity' && el.classList.contains('lgr-in')) el.classList.add('lgr-done');
+      });
+      new MutationObserver(function () {
+        if (el.classList.contains('lgr-done') && !el.classList.contains('lgr-in')) el.classList.remove('lgr-done');   /* re-arm the slow reveal when it scrolls away */
+      }).observe(el, { attributes: true, attributeFilter: ['class'] });
+    });
+  })();
+  </script>
+  <script>
+  /* Smooth momentum scrolling (zoom-safe: works with zoomfix.js, no external library).
+     Wheel input is damped toward a target position; touch, keyboard, scrollbar, modals and
+     inner scroll panels stay native. */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var de = document.documentElement;
+    var LERP = 0.08;     /* glide softness per 60fps frame: lower = silkier / longer glide */
+    var SPEED = 1;       /* wheel distance multiplier */
+    var nativeTo = window.scrollTo.bind(window);
+    function pos() { return window.pageYOffset || de.scrollTop || 0; }
+    function write(y) { nativeTo({ top: y, behavior: 'instant' }); }   /* 'instant' beats CSS scroll-behavior:smooth */
+    var cur = pos(), target = cur, raf = 0, last = 0;
+
+    function loop(t) {
+      var dt = last ? Math.min(0.05, Math.max(0.004, (t - last) / 1000)) : 0.016; last = t;   /* never negative: rAF time can precede performance.now() */
+      var next = cur + (target - cur) * (1 - Math.pow(1 - LERP, dt * 60));
+      if (Math.abs(target - next) < 0.4) next = target;
+      var before = pos();
+      write(next);
+      var p = pos();
+      /* page end reached (top or bottom): we asked for a real move but the page did not move at all */
+      if (Math.abs(next - cur) >= 3 && Math.abs(p - before) < 0.5) {
+        cur = target = p; raf = 0; return;
+      }
+      cur = next;
+      raf = cur !== target ? requestAnimationFrame(loop) : 0;
+    }
+    function go(y) {
+      target = Math.max(0, y);
+      if (!raf) { last = 0; raf = requestAnimationFrame(loop); }
+    }
+    function inner(node) {                                    /* let modals / chat panels / tables scroll natively */
+      for (var el = node; el && el !== document.body && el !== de; el = el.parentElement) {
+        var o = getComputedStyle(el).overflowY;
+        if ((o === 'auto' || o === 'scroll') && el.scrollHeight > el.clientHeight) return true;
+      }
+      return false;
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || e.defaultPrevented || e.shiftKey || inner(e.target)) return;
+      var d = e.deltaY;
+      if (Math.abs(e.deltaX) > Math.abs(d)) return;
+      if (e.deltaMode === 1) d *= 40; else if (e.deltaMode === 2) d *= window.innerHeight;
+      e.preventDefault();
+      if (!raf) cur = target = pos();
+      go(target + d * SPEED / (window.__zf || 1));
+    }, { passive: false });
+
+    window.addEventListener('scroll', function () {           /* keyboard / scrollbar / touch: stay in sync */
+      if (raf) return;
+      var p = pos(); if (Math.abs(p - cur) > 1.5) cur = target = p;
+    }, { passive: true });
+
+    /* existing window.scrollTo() calls (anchors, scroll-to-top, admin lock) glide through the same engine */
+    window.scrollTo = function (a, b) {
+      var top = null, smooth = false;
+      if (a && typeof a === 'object') { top = a.top; smooth = a.behavior === 'smooth'; }
+      else if (typeof b === 'number') { top = b; }
+      if (typeof top !== 'number') return nativeTo.apply(window, arguments);
+      if (smooth) { if (!raf) cur = target = pos(); go(top); return; }
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      cur = target = Math.max(0, top); write(cur);
+    };
+  })();
+  </script>
+  <script src="units.js?v=1795200003"></script>
+  <script src="descriptors.js?v=1794931300"></script>
+  <script src="formula.js?v=1794931200"></script>
+  <script src="app.js?v=1795200003"></script>
+</body>
+</html>

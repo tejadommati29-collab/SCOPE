@@ -1,0 +1,550 @@
+{
+ "scores": {
+  "SVR": {
+   "test_R2": 0.8863984859468242,
+   "cv_R2": 0.8876434869140273,
+   "MAE": 0.35301360743443194
+  }
+ },
+ "descriptors": [
+  {
+   "key": "Ion_A",
+   "group": "basic",
+   "label": "Valence-electron ionization energy, A-site",
+   "column": "Ion_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Ion_B",
+   "group": "basic",
+   "label": "Valence-electron ionization energy, B-site",
+   "column": "Ion_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "EN_A",
+   "group": "basic",
+   "label": "Site-averaged electronegativity, A-site",
+   "column": "EN_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "EN_B",
+   "group": "basic",
+   "label": "Site-averaged electronegativity, B-site",
+   "column": "EN_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "R_A",
+   "group": "basic",
+   "label": "Shannon ionic radius, A-site",
+   "column": "R_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "R_B",
+   "group": "basic",
+   "label": "Shannon ionic radius, B-site",
+   "column": "R_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Sa_A",
+   "group": "basic",
+   "label": "Ionic Lewis acidity, A-site",
+   "column": "Sa_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Sa_B",
+   "group": "basic",
+   "label": "Ionic Lewis acidity, B-site",
+   "column": "Sa_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Delec_B",
+   "group": "basic",
+   "label": "B-site d-electron count",
+   "column": "Delec_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "t",
+   "group": "basic",
+   "label": "Goldschmidt tolerance factor",
+   "column": "t",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Ionic_A",
+   "group": "basic",
+   "label": "Ionicity index, A-site",
+   "column": "Ionic_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Ionic_B",
+   "group": "basic",
+   "label": "Ionicity index, B-site",
+   "column": "Ionic_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Avg_Ionic_Character",
+   "group": "basic",
+   "label": "Average ionic character (ionicity)",
+   "column": "Avg_Ionic_Character",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "SmithAcid_A",
+   "group": "basic",
+   "label": "Smith acidity, A-site",
+   "column": "SmithAcid_A",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "SmithAcid_B",
+   "group": "basic",
+   "label": "Smith acidity, B-site",
+   "column": "SmithAcid_B",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "1000/T",
+   "group": "temperature",
+   "label": "Inverse absolute temperature (1000/T)",
+   "column": "1000/T",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Gap",
+   "group": "enhanced",
+   "label": "Band gap",
+   "column": "Gap",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Oxide_vacancy",
+   "group": "enhanced",
+   "label": "Oxygen-vacancy formation energy",
+   "column": "Oxide_vacancy",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "E_above_hull",
+   "group": "enhanced",
+   "label": "Ehull (energy above hull)",
+   "column": "E_above_hull",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "TEC",
+   "group": "enhanced",
+   "label": "Thermal expansion coefficient (TEC)",
+   "column": "TEC",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Work_Function",
+   "group": "enhanced",
+   "label": "Work function",
+   "column": "Work_Function",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "Log_dieletric",
+   "group": "enhanced",
+   "label": "Log dielectric constant",
+   "column": "Log_dieletric",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  },
+  {
+   "key": "O_pband",
+   "group": "enhanced",
+   "label": "O p-band center",
+   "column": "O_pband",
+   "present": true,
+   "usable": true,
+   "reason": "OK"
+  }
+ ],
+ "dataset": "dfea8978-SCOPE_Master_Combined_Dataset.xlsx",
+ "n_rows": 1636,
+ "train": {
+  "features": [
+   "Ion_A",
+   "Ion_B",
+   "EN_A",
+   "EN_B",
+   "R_A",
+   "R_B",
+   "Sa_A",
+   "Sa_B",
+   "Delec_B",
+   "t",
+   "Ionic_A",
+   "Ionic_B",
+   "Avg_Ionic_Character",
+   "SmithAcid_A",
+   "SmithAcid_B",
+   "1000/T",
+   "Gap",
+   "Oxide_vacancy",
+   "E_above_hull",
+   "TEC",
+   "Work_Function",
+   "Log_dieletric",
+   "O_pband"
+  ],
+  "feature_stats": {
+   "Ion_A": {
+    "min": 9.248,
+    "max": 23.4,
+    "median": 15.105
+   },
+   "Ion_B": {
+    "min": 24.76,
+    "max": 43.27,
+    "median": 32.645
+   },
+   "EN_A": {
+    "min": 1.0624,
+    "max": 1.3378,
+    "median": 1.1585
+   },
+   "EN_B": {
+    "min": 1.275,
+    "max": 1.7742,
+    "median": 1.666
+   },
+   "R_A": {
+    "min": 1.224,
+    "max": 1.61,
+    "median": 1.396
+   },
+   "R_B": {
+    "min": 0.5,
+    "max": 0.9033333333333332,
+    "median": 0.554
+   },
+   "Sa_A": {
+    "min": 0.1858,
+    "max": 0.396,
+    "median": 0.274
+   },
+   "Sa_B": {
+    "min": 0.398,
+    "max": 0.676,
+    "median": 0.5224000000000001
+   },
+   "Delec_B": {
+    "min": 0.0,
+    "max": 7.0,
+    "median": 5.0
+   },
+   "t": {
+    "min": 0.8169636334059016,
+    "max": 1.091482775062312,
+    "median": 1.010152544552211
+   },
+   "Ionic_A": {
+    "min": 0.7402738000000001,
+    "max": 0.7669193999999999,
+    "median": 0.7577934
+   },
+   "Ionic_B": {
+    "min": 0.6975252,
+    "max": 0.748367,
+    "median": 0.7082682
+   },
+   "Avg_Ionic_Character": {
+    "min": 0.7250984,
+    "max": 0.7563415,
+    "median": 0.73376215
+   },
+   "SmithAcid_A": {
+    "min": -10.8,
+    "max": -4.680000000000001,
+    "median": -7.75
+   },
+   "SmithAcid_B": {
+    "min": -6.133333333333333,
+    "max": 6.6,
+    "median": -2.12
+   },
+   "1000/T": {
+    "min": 0.7283321194464676,
+    "max": 1.91138461538461,
+    "median": 1.145475372279496
+   },
+   "Gap": {
+    "min": 1.52053486867,
+    "max": 6.961608720783327,
+    "median": 1.804601366826665
+   },
+   "Oxide_vacancy": {
+    "min": -5.677833333333355,
+    "max": 5.132939999999998,
+    "median": 1.95525523333334
+   },
+   "E_above_hull": {
+    "min": 10.03043434328666,
+    "max": 276.9053269330998,
+    "median": 101.8674705505938
+   },
+   "TEC": {
+    "min": 10.80117160714287,
+    "max": 21.19199583333332,
+    "median": 18.031552506084623
+   },
+   "Work_Function": {
+    "min": 1.963202044444443,
+    "max": 3.567403433333331,
+    "median": 2.407825484444442
+   },
+   "Log_dieletric": {
+    "min": 1.012942909234277,
+    "max": 1.398333176291139,
+    "median": 1.2239402988287127
+   },
+   "O_pband": {
+    "min": -4.040313000000006,
+    "max": -1.69306,
+    "median": -2.441545758982356
+   }
+  },
+  "shap": [
+   {
+    "feature": "1000/T",
+    "label": "Inverse absolute temperature (1000/T)",
+    "mean_abs": 0.8217687446391299,
+    "mean_signed": 0.016232166600093887,
+    "corr_with_value": -0.9335786582531894,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "O_pband",
+    "label": "O p-band center",
+    "mean_abs": 0.422214380960595,
+    "mean_signed": -0.03811103466386052,
+    "corr_with_value": 0.89447586480317,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "Ion_B",
+    "label": "Valence-electron ionization energy, B-site",
+    "mean_abs": 0.3914678934773187,
+    "mean_signed": 0.007096376822034483,
+    "corr_with_value": -0.8643794974621924,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "R_A",
+    "label": "Shannon ionic radius, A-site",
+    "mean_abs": 0.26212791786013195,
+    "mean_signed": 0.017225525753810866,
+    "corr_with_value": -0.8128864255635676,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Sa_A",
+    "label": "Ionic Lewis acidity, A-site",
+    "mean_abs": 0.25064605260786926,
+    "mean_signed": -0.01603157182282212,
+    "corr_with_value": -0.8185014184291536,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "E_above_hull",
+    "label": "Ehull (energy above hull)",
+    "mean_abs": 0.24120222361512628,
+    "mean_signed": -0.02732685068653031,
+    "corr_with_value": -0.7642157038451103,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "t",
+    "label": "Goldschmidt tolerance factor",
+    "mean_abs": 0.22540140000050599,
+    "mean_signed": 0.027277847294613466,
+    "corr_with_value": -0.8186038557882784,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "SmithAcid_A",
+    "label": "Smith acidity, A-site",
+    "mean_abs": 0.22177273063726968,
+    "mean_signed": -0.02300364934635222,
+    "corr_with_value": -0.874123035324467,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Work_Function",
+    "label": "Work function",
+    "mean_abs": 0.22032991045957145,
+    "mean_signed": -0.017718264933244476,
+    "corr_with_value": 0.7728573917007063,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "Delec_B",
+    "label": "B-site d-electron count",
+    "mean_abs": 0.1441127093876144,
+    "mean_signed": -0.006571240320357232,
+    "corr_with_value": 0.8659222214608406,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "TEC",
+    "label": "Thermal expansion coefficient (TEC)",
+    "mean_abs": 0.13320638489969663,
+    "mean_signed": -0.016131976435897602,
+    "corr_with_value": 0.8070061703545309,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "Gap",
+    "label": "Band gap",
+    "mean_abs": 0.1331466323968674,
+    "mean_signed": -0.0016952115600689943,
+    "corr_with_value": 0.8164962363523292,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "Ion_A",
+    "label": "Valence-electron ionization energy, A-site",
+    "mean_abs": 0.12948677749712223,
+    "mean_signed": -0.01269071974072452,
+    "corr_with_value": -0.7420254769159033,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Sa_B",
+    "label": "Ionic Lewis acidity, B-site",
+    "mean_abs": 0.124394847004103,
+    "mean_signed": 0.005186598304650606,
+    "corr_with_value": 0.803924027600996,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "SmithAcid_B",
+    "label": "Smith acidity, B-site",
+    "mean_abs": 0.11559523576353818,
+    "mean_signed": 0.005138077734964227,
+    "corr_with_value": -0.7896722862983223,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "EN_A",
+    "label": "Site-averaged electronegativity, A-site",
+    "mean_abs": 0.09937549232591451,
+    "mean_signed": -0.008277287410309968,
+    "corr_with_value": -0.7328438664177926,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Avg_Ionic_Character",
+    "label": "Average ionic character (ionicity)",
+    "mean_abs": 0.08169591613282436,
+    "mean_signed": 0.00033057453674621576,
+    "corr_with_value": -0.6549908825828024,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "EN_B",
+    "label": "Site-averaged electronegativity, B-site",
+    "mean_abs": 0.07825198730433354,
+    "mean_signed": 0.0015631150579991863,
+    "corr_with_value": 0.7167256004291643,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "Ionic_B",
+    "label": "Ionicity index, B-site",
+    "mean_abs": 0.0663048901688548,
+    "mean_signed": -0.0020511140953815604,
+    "corr_with_value": -0.7573251026456598,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Ionic_A",
+    "label": "Ionicity index, A-site",
+    "mean_abs": 0.06405822142849049,
+    "mean_signed": 0.0034487433494646796,
+    "corr_with_value": -0.06874884174149276,
+    "direction": "mixed / weak"
+   },
+   {
+    "feature": "Log_dieletric",
+    "label": "Log dielectric constant",
+    "mean_abs": 0.06397289736507755,
+    "mean_signed": 0.004312199834060496,
+    "corr_with_value": -0.6298170384821362,
+    "direction": "negative (higher value \u2192 lower log k*)"
+   },
+   {
+    "feature": "Oxide_vacancy",
+    "label": "Oxygen-vacancy formation energy",
+    "mean_abs": 0.05670390740172482,
+    "mean_signed": 0.014077635543488854,
+    "corr_with_value": 0.5861431950978677,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   },
+   {
+    "feature": "R_B",
+    "label": "Shannon ionic radius, B-site",
+    "mean_abs": 0.030880037925472597,
+    "mean_signed": -0.005546992527457619,
+    "corr_with_value": 0.10756596852939297,
+    "direction": "positive (higher value \u2192 higher log k*)"
+   }
+  ]
+ }
+}
